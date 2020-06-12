@@ -2,8 +2,12 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 1vmax;
+}
 body{
     font-family: sans-serif;
+
 }
 .header{
     background-color: rgb(34, 32, 32);
@@ -11,29 +15,48 @@ body{
     padding: 1% 2%;
 }
 .header > h3{
-    font-size: 2vmax
+    font-size: 2rem
 }
 .item-img{
     object-fit: contain;
+    object-position: center;
     height: 15vw;
-    width: 15vw;
+    width: 100%;
+}
+
+.details-img > img {
+    object-fit: contain;
+    width: 100%;
 }
 
 .item-card{
     margin: .5vmax .5vmax;
     width: 25vw;
     padding: .2vmax;
+    cursor: pointer;
 }
 .card-body{
     padding: .1vmax
 }
 .card-title{
-    font-size: 1.6vmax;
+    font-size: 1.6rem;
 }
-.price {
-    font-size: 1vmax;
-    margin: .1vmax
+.price,
+.details-price{
+    font-size: 1rem;
+    margin: .1vmax;
+    color: grey;
 }
-.card-text{
-    font-size:1.2vmax
+.card-text,
+.details-short,
+.details-long{
+    font-size:1.2rem
+}
+
+.container-fluid{
+    padding: 1rem
+}
+.details-back-button{
+    cursor: pointer;
+    margin: .5rem;
 }

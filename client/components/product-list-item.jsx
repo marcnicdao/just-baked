@@ -2,9 +2,9 @@ import React from 'react';
 
 class ProductListItem extends React.Component {
   render() {
-    const { image, name, price, productId, shortDescription } = this.props;
+    const { image, name, price, productId, shortDescription, setView } = this.props;
     return (
-      <div key={productId} className="card col-sm-3 item-card">
+      <div onClick={setView} key={productId} className="card col-sm-3 item-card">
         <img src={image} className="card-img-top item-img" alt="..."></img>
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
