@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+.header{
+    background-color: rgb(34, 32, 32);
+    color: white;
+    padding: 1% 2%
+}
+.item-img{
+    object-fit: contain;
+    height: 15vw;
+    width: 15vw;
+}
+
+.item-card{
+    margin: 1rem 1rem;
+    width: 25vw;
+}
