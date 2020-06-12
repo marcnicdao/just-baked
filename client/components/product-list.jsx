@@ -32,7 +32,7 @@ class ProductList extends React.Component {
         key={productId}/>);
     });
     return (
-      <div className="d-flex flex-wrap card-container justify-content-center">
+      <div className="d-flex flex-wrap card-container justify-content-center container-fluid">
         {productGrid}
       </div>
     );
