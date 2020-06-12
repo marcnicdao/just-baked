@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+.header{
+    background-color: rgb(34, 32, 32);
+    color: white;
+    padding: 1% 2%;
+}
+.header > h3{
+    font-size: 2vmax
+}
+.item-img{
+    object-fit: contain;
+    height: 15vw;
+    width: 15vw;
+}
+
+.item-card{
+    margin: .5vmax .5vmax;
+    width: 25vw;
+    padding: .2vmax;
+}
+.card-body{
+    padding: .1vmax
+}
+.card-title{
+    font-size: 1.6vmax;
+}
+.price {
+    font-size: 1vmax;
+    margin: .1vmax
+}
+.card-text{
+    font-size:1.2vmax
+}
