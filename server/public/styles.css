@@ -53,12 +53,8 @@ body{
     font-size:1.2rem
 }
 
-.details-main-container{
-    padding: 0;
-}
-
 .container-fluid{
-    padding: 0
+    padding: 1rem
 }
 .details-back-button{
     cursor: pointer;
