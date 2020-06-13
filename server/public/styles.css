@@ -27,6 +27,7 @@ body{
 .details-img > img {
     object-fit: contain;
     width: 100%;
+    max-height: 30vmax;
 }
 
 .item-card{
@@ -47,9 +48,8 @@ body{
     margin: .1vmax;
     color: grey;
 }
-.card-text,
 .details-short,
-.details-long{
+.card-text{
     font-size:1.2rem
 }
 
@@ -59,4 +59,9 @@ body{
 .details-back-button{
     cursor: pointer;
     margin: .5rem;
+}
+
+
+.details-long{
+    font-size: 1.6rem;
 }

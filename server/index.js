@@ -49,6 +49,92 @@ app.get('/api/products/:productId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/cart', (req, res, next) => {
+  if (!req.session.cartId) {
+    res.json([]);
+  } else {
+    const sql = `
+      select "c"."cartItemId",
+       "c"."price",
+       "p"."productId",
+       "p"."image",
+       "p"."name",
+       "p"."shortDescription"
+  from "cartItems" as "c"
+  join "products" as "p" using ("productId")
+ where "c"."cartId" = $1
+    `;
+    const params = [req.session.cartId];
+    db.query(sql, params)
+      .then(result => res.status(200).json(result.rows[0]))
+      .catch(err => next(err));
+  }
+});
+
+app.post('/api/cart', (req, res, next) => {
+  const productId = parseInt(req.body.productId);
+  if (productId < 0) return res.status(400).json({ error: 'Please enter a valid Id' });
+  const sql = `
+    select "price"
+      from "products"
+     where "productId" = $1
+  `;
+  const params = [productId];
+
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows[0]) {
+        throw new ClientError(`No products with Id ${productId}`);
+      }
+      const price = result.rows[0].price;
+      const sqlAddToCarts = `
+          insert into "carts" ("cartId", "createdAt")
+          values (default, default)
+          returning "cartId"
+        `;
+      return db.query(sqlAddToCarts)
+        .then(result => {
+          return ({
+            cartId: result.rows[0].cartId,
+            price: price
+          });
+        });
+
+    })
+    .then(result => {
+      req.session.cartId = result.cartId;
+      const sqlAddCartItem = `
+        insert into "cartItems" ("cartId", "productId", "price")
+        values ($1, $2, $3)
+        returning "cartItemId"
+      `;
+      const cartItemParams = [result.cartId, productId, result.price];
+      return db.query(sqlAddCartItem, cartItemParams)
+        .then(result => {
+          return result.rows[0];
+        });
+    })
+    .then(result => {
+      const sqlJoinCart = `
+        select "c"."cartItemId",
+               "c"."price",
+               "p"."productId",
+               "p"."image",
+               "p"."name",
+               "p"."shortDescription"
+          from "cartItems" as "c"
+          join "products" as "p" using ("productId")
+         where "c"."cartItemId" = $1
+      `;
+      const joinCartParams = [result.cartItemId];
+      return db.query(sqlJoinCart, joinCartParams)
+        .then(result => {
+          res.status(201).json(result.rows[0]);
+        });
+    })
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
