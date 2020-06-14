@@ -17,7 +17,7 @@ body{
 .header > h3{
     font-size: 2rem
 }
-.item-img{
+.item-img, .cart-img{
     object-fit: contain;
     object-position: center;
     height: 15vw;
@@ -64,4 +64,20 @@ body{
 
 .details-long{
     font-size: 1.6rem;
+}
+
+.cart-item{
+    max-height: 20vh;
+}
+
+.cart-img-container{
+    min-width: 35%;
+    width: 35%;
+    max-height: 20vh;
+    margin-right: 1rem;
+}
+
+.cart-icon,
+.logo{
+    cursor: pointer;
 }
