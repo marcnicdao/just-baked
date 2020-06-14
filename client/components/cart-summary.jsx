@@ -4,6 +4,9 @@ import CartSummaryItem from './cart-summary-item';
 class CartSummary extends React.Component {
   render() {
     const { products, setView } = this.props;
+    const totalPrice = products.reduce((accumulator, product) => {
+      return accumulator + Number((product.price / 100).toFixed(2));
+    }, 0);
     const itemList = products.map(item => {
       return (
         <CartSummaryItem item={item}
@@ -16,6 +19,7 @@ class CartSummary extends React.Component {
           <span onClick={() => setView('catalog', {})}
             className="details-back-button">{'<Back to catalog'}</span>
           {itemList}
+          <h4>{`Total: ${totalPrice}`}</h4>
         </div>
       </div>
     );

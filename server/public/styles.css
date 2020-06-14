@@ -68,6 +68,7 @@ body{
 
 .cart-item{
     max-height: 20vh;
+    margin-bottom: 1rem;
 }
 
 .cart-img-container{
