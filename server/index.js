@@ -66,7 +66,7 @@ app.get('/api/cart', (req, res, next) => {
     `;
     const params = [req.session.cartId];
     db.query(sql, params)
-      .then(result => res.status(200).json(result.rows[0]))
+      .then(result => res.status(200).json(result.rows))
       .catch(err => next(err));
   }
 });
@@ -87,18 +87,25 @@ app.post('/api/cart', (req, res, next) => {
         throw new ClientError(`No products with Id ${productId}`);
       }
       const price = result.rows[0].price;
-      const sqlAddToCarts = `
-          insert into "carts" ("cartId", "createdAt")
-          values (default, default)
-          returning "cartId"
-        `;
-      return db.query(sqlAddToCarts)
-        .then(result => {
-          return ({
-            cartId: result.rows[0].cartId,
-            price: price
-          });
+      if (req.session.cartId) {
+        return ({
+          cartId: req.session.cartId,
+          price: price
         });
+      } else {
+        const sqlAddToCarts = `
+            insert into "carts" ("cartId", "createdAt")
+            values (default, default)
+            returning "cartId"
+          `;
+        return db.query(sqlAddToCarts)
+          .then(result => {
+            return ({
+              cartId: result.rows[0].cartId,
+              price: price
+            });
+          });
+      }
 
     })
     .then(result => {

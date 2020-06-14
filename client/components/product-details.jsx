@@ -17,8 +17,9 @@ class ProductDetail extends React.Component {
 
   render() {
     if (this.state.product) {
-      const { setView } = this.props;
+      const { setView, addToCart } = this.props;
       const { image, longDescription, name, price, productId, shortDescription } = this.state.product;
+      const { product } = this.state;
       return (
         <div className="container col-10 p-5">
           <div key={productId} className="container-fluid details-main-container card">
@@ -31,6 +32,7 @@ class ProductDetail extends React.Component {
                 <h1 className="details-title">{name}</h1>
                 <p className="details-price">{`$${(price / 100).toFixed(2)}`}</p>
                 <p>{shortDescription}</p>
+                <b type="button" className="btn btn-primary" onClick={() => addToCart(product)}>Add to cart</b>
               </div>
               <div className="details-long col-12">{longDescription}</div>
             </div>
