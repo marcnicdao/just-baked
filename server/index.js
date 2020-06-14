@@ -66,7 +66,7 @@ app.get('/api/cart', (req, res, next) => {
     `;
     const params = [req.session.cartId];
     db.query(sql, params)
-      .then(result => res.status(200).json(result.rows[0]))
+      .then(result => res.status(200).json(result.rows))
       .catch(err => next(err));
   }
 });
