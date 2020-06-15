@@ -10,12 +10,17 @@ class CartSummary extends React.Component {
     const itemList = products.map(item => {
       return (
         <CartSummaryItem item={item}
-          key={item.cartItemId}/>
+          key={item.cartItemId} />
       );
     });
-    const footerText = totalPrice === 0
+    const footerText = totalPrice === '0.00'
       ? <h2>{'Your cart is empty'}</h2>
-      : <h4>{`Total: $${totalPrice}`}</h4>;
+      : <div>
+        <h4>{`Total: $${totalPrice}`}</h4>
+        <button type="button"
+          className="btn btn-primary"
+          onClick={() => setView('checkout', {})}>Checkout</button>
+      </div>;
     return (
       <div className="container col-10 p-5">
         <div className="container-fluid details-main-container card">
