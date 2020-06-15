@@ -6,7 +6,7 @@ class CartSumamryItem extends React.Component {
 
     return (
       <div className="card cart-item container-fluid flex-row align-items-center">
-        <div className="cart-img-container card">
+        <div className="cart-img-container">
           <img className="cart-img" src={image} />
         </div>
         <div>
