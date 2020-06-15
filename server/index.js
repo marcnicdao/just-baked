@@ -73,7 +73,9 @@ app.get('/api/cart', (req, res, next) => {
 
 app.post('/api/cart', (req, res, next) => {
   const productId = parseInt(req.body.productId);
-  if (productId < 0) return res.status(400).json({ error: 'Please enter a valid Id' });
+  if (productId < 0) {
+    return res.status(400).json({ error: 'Please enter a valid Id' });
+  }
   const sql = `
     select "price"
       from "products"
@@ -140,6 +142,30 @@ app.post('/api/cart', (req, res, next) => {
         });
     })
     .catch(err => next(err));
+});
+
+app.post('/api/orders', (req, res, next) => {
+  if (!req.session.cartId) {
+    return res.status(400)
+      .json({ error: 'Add items to cart to start an order' });
+  }
+  const { name, creditCard, shippingAddress } = req.body;
+  if (name && creditCard && shippingAddress) {
+    const sql = `
+      insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+        values ($1, $2, $3, $4)
+        returning "name", "orderId", "createdAt", "creditCard", "shippingAddress"
+    `;
+    const params = [req.session.cartId, name, creditCard, shippingAddress];
+    db.query(sql, params)
+      .then(result => {
+        delete req.session.cartId;
+        res.status(201).json(result.rows[0]);
+      })
+      .catch(err => next(err));
+  } else {
+    res.status(400).json({ error: 'All fields are required' });
+  }
 });
 
 app.use('/api', (req, res, next) => {
