@@ -34,7 +34,8 @@ class ProductList extends React.Component {
         setView={() => setView('details', { productId: productId })}/>);
     });
     return (
-      <div className="d-flex flex-wrap card-container justify-content-center container-fluid">
+      <div className={`d-flex flex-wrap card-container
+      justify-content-center container-fluid`}>
         {productGrid}
       </div>
     );
