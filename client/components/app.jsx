@@ -96,7 +96,7 @@ export default class App extends React.Component {
     return (
       <div className='container-fluid justify-content-center p-0'>
         <Header cartItemCount={cart.length}
-          setView={this.setView}/>
+          setView={this.setView} />
         {productView}
       </div>
     );

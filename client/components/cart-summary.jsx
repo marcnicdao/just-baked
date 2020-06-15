@@ -10,7 +10,7 @@ class CartSummary extends React.Component {
     const itemList = products.map(item => {
       return (
         <CartSummaryItem item={item}
-          key={item.cartItemId}/>
+          key={item.cartItemId} />
       );
     });
     const footerText = totalPrice === '0.00'

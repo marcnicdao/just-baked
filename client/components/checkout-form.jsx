@@ -34,7 +34,7 @@ class CheckoutForm extends React.Component {
               id="name"
               placeholder="Enter Name"
               value={name}
-              onChange={this.formHandler}/>
+              onChange={this.formHandler} />
           </div>
           <div className="form-group">
             <label htmlFor="creditCard">Credit Card</label>
@@ -43,7 +43,7 @@ class CheckoutForm extends React.Component {
               id="creditCard"
               placeholder="Enter Card Number"
               value={creditCard}
-              onChange={this.formHandler}/>
+              onChange={this.formHandler} />
           </div>
           <div className="form-group">
             <label htmlFor="shippingAddress">Address</label>
@@ -51,7 +51,7 @@ class CheckoutForm extends React.Component {
               id="shippingAddress"
               rows="3"
               value={shippingAddress}
-              onChange={this.formHandler}/>
+              onChange={this.formHandler} />
           </div>
           <button type="button"
             className="btn btn-primary"
