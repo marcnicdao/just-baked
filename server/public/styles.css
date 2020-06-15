@@ -17,10 +17,19 @@ body{
 .header > h3{
     font-size: 2rem
 }
+
 .item-img{
     object-fit: contain;
     object-position: center;
-    height: 15vw;
+    height: 50%;
+    width: 100%;
+}
+
+.cart-img{
+    object-fit: contain;
+    object-position: center;
+    max-height: 19vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -48,7 +57,7 @@ body{
     margin: .1vmax;
     color: grey;
 }
-.details-short,
+.details-long,
 .card-text{
     font-size:1.2rem
 }
@@ -62,6 +71,23 @@ body{
 }
 
 
-.details-long{
+.details-short{
     font-size: 1.6rem;
+}
+
+.cart-item{
+    max-height: 20vh;
+    margin-bottom: 1rem;
+}
+
+.cart-img-container{
+    min-width: 35%;
+    width: 35%;
+    max-height: 20vh;
+    margin-right: 1rem;
+}
+
+.cart-icon,
+.logo{
+    cursor: pointer;
 }
