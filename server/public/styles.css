@@ -48,7 +48,7 @@ body{
     margin: .1vmax;
     color: grey;
 }
-.details-short,
+.details-long,
 .card-text{
     font-size:1.2rem
 }
@@ -62,7 +62,7 @@ body{
 }
 
 
-.details-long{
+.details-short{
     font-size: 1.6rem;
 }
 
