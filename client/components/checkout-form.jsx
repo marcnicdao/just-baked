@@ -23,7 +23,7 @@ class CheckoutForm extends React.Component {
     const { name, creditCard, shippingAddress } = this.state;
     const { placeOrder } = this.props;
     return (
-      <div className='checkout-container container col-10'>
+      <div className='checkout-container container col-12'>
         <h1>My Cart</h1>
         <h4>Order Total</h4>
         <form>

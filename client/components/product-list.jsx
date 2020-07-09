@@ -35,7 +35,7 @@ class ProductList extends React.Component {
     });
     return (
       <div className={`d-flex flex-wrap card-container
-      justify-content-center container-fluid`}>
+      justify-content-center container-fluid col-sm-12 col-lg-9`}>
         {productGrid}
       </div>
     );

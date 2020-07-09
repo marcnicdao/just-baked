@@ -7,7 +7,7 @@ class Header extends React.Component {
     return (
       <header className="header px-4 pt-4 d-flex justify-content-between">
         <h3 className="logo"
-          onClick={() => setView('catalog', {})}>$ Wicked Sales</h3>
+          onClick={() => setView('catalog', {})}>justBaked</h3>
         <div className="cart-icon"
           onClick={() => setView('cart', {})}>
           <h4>
