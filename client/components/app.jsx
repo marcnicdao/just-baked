@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetail from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
+import DemoModal from './demo-modal';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -32,9 +33,12 @@ export default class App extends React.Component {
   getCartItems() {
     fetch('/api/cart')
       .then(result => (result.json()))
-      .then(cart => this.setState({
-        cart: cart
-      }));
+      .then(cart => {
+        console.log(cart);
+        this.setState({
+          cart: cart
+        });
+      });
   }
 
   componentDidMount() {
@@ -98,6 +102,7 @@ export default class App extends React.Component {
         <Header cartItemCount={cart.length}
           setView={this.setView} />
         {productView}
+        <DemoModal />
       </div>
     );
   }

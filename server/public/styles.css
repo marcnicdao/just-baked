@@ -21,13 +21,6 @@ body{
     width: 100%;
 }
 
-.cart-img{
-    object-fit: contain;
-    object-position: center;
-    max-height: 19vh;
-    height: 100%;
-    width: 100%;
-}
 
 .details-img > img {
     object-fit: contain;
@@ -64,20 +57,25 @@ body{
     margin: .5rem;
     font-size: 1.6rem;
 }
-
+.summary-back-button{
+    font-size: 1rem;
+    cursor: pointer;
+    margin: .5rem;
+}
 
 .cart-item{
-    max-height: 20vh;
     margin-bottom: 1rem;
 }
 
 .cart-img-container{
-    min-width: 35%;
-    width: 35%;
-    max-height: 20vh;
-    margin-right: 1rem;
 }
 
+.cart-img{
+    object-fit: contain;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+}
 .cart-icon,
 .logo{
     cursor: pointer;
@@ -87,10 +85,3 @@ body{
     height: 100%;
     width: 100%;
 }
-
-/* @media screen and (min-width: 900px){
-    .details-long,
-    .details-short{
-        font-size: 1rem
-    }
-} */

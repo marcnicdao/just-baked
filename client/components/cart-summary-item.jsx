@@ -5,12 +5,11 @@ class CartSumamryItem extends React.Component {
     const { image, name, price, shortDescription } = this.props.item;
 
     return (
-      <div className="card cart-item container-fluid flex-row align-items-center">
-        <div className="cart-img-container">
-          <img className="cart-img" src={image} />
-        </div>
+      <div className={`card cart-item flex-row flex-wrap item-card
+                       align-items-center col-sm-12 col-lg-3`}>
+        <img className="item-img" src={image} />
         <div>
-          <h2>{name}</h2>
+          <h5>{name}</h5>
           <p className="price">{`$${(price / 100).toFixed(2)}`}</p>
           <p>{shortDescription}</p>
         </div>

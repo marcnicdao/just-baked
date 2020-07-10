@@ -22,11 +22,13 @@ class CartSummary extends React.Component {
           onClick={() => setView('checkout', {})}>Checkout</button>
       </div>;
     return (
-      <div className="container col-10 p-5">
-        <div className="container-fluid details-main-container card">
+      <div className="container col-sm-12 col-lg-9">
+        <div className="details-main-container">
           <span onClick={() => setView('catalog', {})}
-            className="details-back-button">{'<Back to catalog'}</span>
-          {itemList}
+            className="summary-back-button">{'<Back to catalog'}</span>
+          <div className="d-flex flex-wrap">
+            {itemList}
+          </div>
           {footerText}
         </div>
       </div>
