@@ -2,6 +2,26 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 class CartSummary extends React.Component {
+
+  groupItemsById(products) {
+    const result = {};
+
+    products.forEach(item => {
+      Object.keys(item).forEach(key => {
+        if (!result[item.productId]) result[item.productId] = {};
+        result[item.productId][key] = item[key];
+      });
+      if (!result[item.productId].quantity) result[item.productId].quantity = 1;
+      else result[item.productId].quantity++;
+    });
+    return Object.values(result);
+  }
+
+  componentDidMount() {
+    const i = this.groupItemsById(this.props.products);
+    console.log(i);
+  }
+
   render() {
     const { products, setView } = this.props;
     const totalPrice = products.reduce((accumulator, product) => {
