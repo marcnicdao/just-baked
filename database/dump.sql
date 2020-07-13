@@ -229,39 +229,11 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
-15	50	1	2999
-16	51	1	2999
-17	52	1	2999
-18	53	2	2595
-19	54	2	2595
-20	55	1	2999
-21	56	1	2999
-22	57	1	2999
-23	58	2	2595
-24	59	2	2595
-25	60	2	2595
-26	61	1	2999
-27	62	3	2900
-28	63	2	2595
-29	64	2	2595
-30	65	3	2900
-31	66	1	2999
-32	67	1	2999
-33	68	3	2900
-34	69	1	2999
-35	70	3	2900
-36	70	1	2999
-37	70	3	2900
-38	70	3	2900
-39	70	3	2900
-40	70	1	2999
-41	71	1	2999
-42	71	2	2595
-43	71	5	9900
-44	71	2	2595
-45	71	2	2595
-46	71	2	2595
-47	72	1	2999
+59	75	1	399
+60	75	2	199
+61	75	1	399
+62	75	1	399
+69	76	2	199
 \.
 
 
@@ -270,29 +242,7 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
-54	2020-06-12 18:40:40.187758-07
-55	2020-06-12 18:42:00.272278-07
-56	2020-06-13 15:25:37.94494-07
-57	2020-06-13 15:31:38.284177-07
-58	2020-06-14 12:14:52.926356-07
-59	2020-06-14 12:17:00.598552-07
-60	2020-06-14 12:19:59.630788-07
-61	2020-06-14 12:20:15.751507-07
-62	2020-06-14 12:52:21.819674-07
-63	2020-06-14 12:55:59.202892-07
-64	2020-06-14 12:56:00.318601-07
-65	2020-06-14 12:56:03.972366-07
-66	2020-06-14 13:01:39.038752-07
-67	2020-06-14 13:01:39.629858-07
-68	2020-06-14 13:01:43.092701-07
-69	2020-06-14 13:04:06.125407-07
-70	2020-06-14 13:04:15.885751-07
-71	2020-06-15 10:48:08.696232-07
-72	2020-06-15 11:31:54.037117-07
-50	2020-06-12 18:30:25.93857-07
-51	2020-06-12 18:30:37.189238-07
-52	2020-06-12 18:36:00.071493-07
-53	2020-06-12 18:36:10.96139-07
+76	2020-07-12 22:14:56.501361-07
 \.
 
 
@@ -302,6 +252,8 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 
 COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
 1	72	Marc Nicdao	123456789	rsm ca	2020-06-15 11:35:51.983382-07
+2	71	Marc Nicdao	42342	58 Rancho jokoko	2020-06-15 12:32:55.465559-07
+3	73	Marc Nicdao	42342	57 asdk koko	2020-06-15 12:35:59.909543-07
 \.
 
 
@@ -310,12 +262,12 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 --
 
 COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
-1	Shake Weight	2999	/images/shake-weight.jpg	Dynamic Inertia technology ignites muscles in arms, shoulders, and chest.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-2	ShamWow	2595	/images/shamwow.jpg	It's like a chamois, towel, and sponge, all in one! Soaks up to 10x it's weight in any liquid!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-3	Snuggie	2900	/images/snuggie.jpg	Super-Soft Fleece with pockets! One Size fits all Adults! Keeps you Warm & Your Hands-Free!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-4	Wax Vac	999	/images/wax-vac.jpg	Gentle way to remove ear wax. Safe and hygienic. Reduces the risk of painful infections.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-5	Ostrich Pillow	9900	/images/ostrich-pillow.jpg	Create your own snugly space in the world and feel-good anywhere with the ultimate cocoon pillow.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-6	Tater Mitts	830	/images/tater-mitts.jpg	8 Seconds is all you need with Tater Mitts. Quickly and easily prepare all your favorite potato dishes with Tater Mitts.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
+1	Chocolate Cake	399	/images/chocolate-cake.jpg	A slice of a delicious, creamy chocolate cake topped with rich frosting and a light, fluffy inside	Born with a passion for baking and love for delicious baked treats, our family of bakers bring you a taste of our closely kept secret recipe passed down from generation to generation. Named the "Best Pastries in Town" by local customers, we strive to bring you the best with every bite
+2	Cinnamon Roll	199	/images/cinnamon-roll.jpg	This roll contains a delicate balance created by its sweet, tasty frosting and its inside of prefectly baked dough 	Born with a passion for baking and love for delicious baked treats, our family of bakers bring you a taste of our closely kept secret recipe passed down from generation to generation. Named the "Best Pastries in Town" by local customers, we strive to bring you the best with every bite
+3	Cream Puffs	299	/images/cream-puff.jpg	Deliciously creamy filling with a nice, flaky shell	Born with a passion for baking and love for delicious baked treats, our family of bakers bring you a taste of our closely kept secret recipe passed down from generation to generation. Named the "Best Pastries in Town" by local customers, we strive to bring you the best with every bite
+4	Macaroons	299	/images/macaroon.jpg	Thin flavourfull mirengue cookies with a variety of delectable fillings	Born with a passion for baking and love for delicious baked treats, our family of bakers bring you a taste of our closely kept secret recipe passed down from generation to generation. Named the "Best Pastries in Town" by local customers, we strive to bring you the best with every bite
+5	Muffins	249	/images/muffin.jpg	A single serving of goodness - Baked fresh everyday	Born with a passion for baking and love for delicious baked treats, our family of bakers bring you a taste of our closely kept secret recipe passed down from generation to generation. Named the "Best Pastries in Town" by local customers, we strive to bring you the best with every bite
+6	Tiramisu	249	/images/tiramisu.jpg	Traditional appearance with an authentic taste	Born with a passion for baking and love for delicious baked treats, our family of bakers bring you a taste of our closely kept secret recipe passed down from generation to generation. Named the "Best Pastries in Town" by local customers, we strive to bring you the best with every bite
 \.
 
 
@@ -323,28 +275,28 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 47, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 73, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 72, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 76, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 1, true);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 3, true);
 
 
 --
 -- Name: products_productId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."products_productId_seq"', 1, false);
+SELECT pg_catalog.setval('public."products_productId_seq"', 6, true);
 
 
 --

@@ -17,20 +17,18 @@ class CartSummary extends React.Component {
     return Object.values(result);
   }
 
-  componentDidMount() {
-    const i = this.groupItemsById(this.props.products);
-    console.log(i);
-  }
-
   render() {
-    const { products, setView } = this.props;
+    const { products, setView, addToCart, deleteCartItem } = this.props;
     const totalPrice = products.reduce((accumulator, product) => {
       return accumulator + Number((product.price / 100));
     }, 0).toFixed(2);
-    const itemList = products.map(item => {
+
+    const itemList = this.groupItemsById(products).map(item => {
       return (
         <CartSummaryItem item={item}
-          key={item.cartItemId} />
+          key={item.cartItemId}
+          addToCart={addToCart}
+          deleteCartItem={deleteCartItem} />
       );
     });
     const footerText = totalPrice === '0.00'

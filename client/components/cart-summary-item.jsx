@@ -2,7 +2,8 @@ import React from 'react';
 
 class CartSumamryItem extends React.Component {
   render() {
-    const { image, name, price, shortDescription } = this.props.item;
+    const { item, addToCart, deleteCartItem } = this.props;
+    const { image, name, price, shortDescription, quantity, cartItemId } = item;
 
     return (
       <div className={`card cart-item flex-row flex-wrap item-card
@@ -12,6 +13,11 @@ class CartSumamryItem extends React.Component {
           <h5>{name}</h5>
           <p className="price">{`$${(price / 100).toFixed(2)}`}</p>
           <p>{shortDescription}</p>
+          <div>
+            <button onClick={() => deleteCartItem(cartItemId)}>-</button>
+            <span>{quantity}</span>
+            <button onClick={() => addToCart(item)}>+</button>
+          </div>
         </div>
       </div>
     );
