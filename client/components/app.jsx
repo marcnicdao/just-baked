@@ -5,6 +5,7 @@ import ProductDetail from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
 import WarningModal from './warning-modal';
+import OrderConfirmation from './order-cofirmation';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -82,7 +83,7 @@ export default class App extends React.Component {
       .then(this.setState({
         cart: [],
         view: {
-          name: 'catalog',
+          name: 'confirmation',
           params: {}
         }
       }));
@@ -114,8 +115,9 @@ export default class App extends React.Component {
             placeOrder={this.placeOrder}
             products={cart} />;
         </div>;
-
         break;
+      case 'confirmation':
+        productView = <OrderConfirmation setView={this.setView}/>;
     }
     return (
       <div className='container-fluid justify-content-center p-0'>
