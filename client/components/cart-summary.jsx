@@ -36,7 +36,7 @@ class CartSummary extends React.Component {
       : <div>
         <h4>{`Total: $${totalPrice}`}</h4>
         <button type="button"
-          className="btn btn-primary"
+          className="btn btn-primary my-2"
           onClick={() => setView('checkout', {})}>Checkout</button>
       </div>;
     return (

@@ -32,6 +32,12 @@ body{
     margin: .5vmax .5vmax;
     padding: .2vmax;
     cursor: pointer;
+    transition: .2s;
+}
+.item-card:hover{
+    opacity: .5;
+    filter: brightness(105%);
+    -webkit-filter: brightness(105%);
 }
 .card-body{
     padding: .1vmax

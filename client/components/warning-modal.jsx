@@ -15,11 +15,11 @@ const WarningModal = props => {
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Attention</ModalHeader>
         <ModalBody>
-          <h5><b>Warning:</b> This Website is for demonstration purposes only</h5>
-          <h5>By clicking <b>Accept</b>, I undestand that no real purchases will be made and personal information should not be used.</h5>
+          <p><b>Warning:</b> This Website is for demonstration purposes only</p>
+          <p>By clicking <b>Accept</b>, I understand that no real purchases will be made and personal information should not be used.</p>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}><h6>Accept</h6></Button>
+          <Button color="primary" onClick={toggle}>Accept</Button>
         </ModalFooter>
       </Modal>
     </div>

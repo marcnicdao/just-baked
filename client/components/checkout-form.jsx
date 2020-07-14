@@ -62,6 +62,7 @@ class CheckoutForm extends React.Component {
           </div>
           <button type="button"
             className="btn btn-primary"
+            disabled={!(name && creditCard && shippingAddress)}
             onClick={() => placeOrder(this.state)}>Place Order</button>
         </form>
       </div>

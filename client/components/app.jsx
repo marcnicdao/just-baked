@@ -108,7 +108,7 @@ export default class App extends React.Component {
         break;
       case 'checkout':
         productView = <div>
-          <h6 className='bg-danger text-white warning p-1'>Reminded: This site is for demo purposes only.
+          <h6 className='bg-danger text-white warning p-1'>Reminder: This site is for demo purposes only.
           Do not use any personal information.</h6>
           <CheckoutForm setView={this.setView}
             placeOrder={this.placeOrder}
