@@ -21,4 +21,4 @@ A full stack Node.js and React shopping cart app for baked goods.
 ![Preview](https://github.com/marcnicdao/just-baked/blob/master/server/public/images/preview.gif "Preview")
 
 # Live Demo
-A live demo of the of application can be viewed at this [link](https://justbaked.marcnicdao.com/) 
+A live demo of the of application can be viewed at this [link](https://just-baked.marcnicdao.com/) 
