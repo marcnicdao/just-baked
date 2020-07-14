@@ -6,17 +6,17 @@ class CartSumamryItem extends React.Component {
     const { image, name, price, shortDescription, quantity, cartItemId } = item;
 
     return (
-      <div className={`card cart-item flex-row flex-wrap item-card
-                       align-items-center col-sm-12 col-lg-3`}>
-        <img className="item-img" src={image} />
-        <div>
+      <div className={`card cart-item flex-row flex-wrap
+                       align-items-center col-xs-12 col-md-10`}>
+        <img className="item-img col-xs-12 col-md-5" src={image} />
+        <div className='col-xs-12 col-md'>
           <h5>{name}</h5>
           <p className="price">{`$${(price / 100).toFixed(2)}`}</p>
           <p>{shortDescription}</p>
-          <div>
-            <button onClick={() => deleteCartItem(cartItemId)}>-</button>
-            <span>{quantity}</span>
-            <button onClick={() => addToCart(item)}>+</button>
+          <div className='d-flex justify-content-center quantity'>
+            <button onClick={() => deleteCartItem(cartItemId)} className='btn btn-outline-dark'>-</button>
+            <span className='my-auto mx-1'>{quantity}</span>
+            <button onClick={() => addToCart(item)} className='btn btn-outline-dark'>+</button>
           </div>
         </div>
       </div>

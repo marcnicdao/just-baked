@@ -10,10 +10,10 @@ class Header extends React.Component {
           onClick={() => setView('catalog', {})}>justBaked</h3>
         <div className="cart-icon"
           onClick={() => setView('cart', {})}>
-          <h4>
+          <div>
             <span>{cartItemCount} items</span>
             <i className="fas fa-shopping-cart fa-lg text-white"></i>
-          </h4>
+          </div>
         </div>
       </header>
     );

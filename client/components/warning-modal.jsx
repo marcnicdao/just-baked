@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const DemoModal = props => {
+const WarningModal = props => {
   const {
     className
   } = props;
@@ -13,17 +13,17 @@ const DemoModal = props => {
   return (
     <div>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Warning</ModalHeader>
+        <ModalHeader toggle={toggle}>Attention</ModalHeader>
         <ModalBody>
-          <h4><b>WARNING:</b> This Website is for demonstration purposes only</h4>
-          <h4>By clicking <b>Accept</b>, I undestand that no real purchases will be made and personal information should not be used.</h4>
+          <h5><b>Warning:</b> This Website is for demonstration purposes only</h5>
+          <h5>By clicking <b>Accept</b>, I undestand that no real purchases will be made and personal information should not be used.</h5>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}><h4>Accept</h4></Button>
+          <Button color="primary" onClick={toggle}><h6>Accept</h6></Button>
         </ModalFooter>
       </Modal>
     </div>
   );
 };
 
-export default DemoModal;
+export default WarningModal;

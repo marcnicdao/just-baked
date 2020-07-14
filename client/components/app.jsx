@@ -4,7 +4,7 @@ import ProductList from './product-list';
 import ProductDetail from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
-import DemoModal from './demo-modal';
+import WarningModal from './warning-modal';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -107,8 +107,14 @@ export default class App extends React.Component {
           deleteCartItem={this.deleteCartItem} />;
         break;
       case 'checkout':
-        productView = <CheckoutForm setView={this.setView}
-          placeOrder={this.placeOrder} />;
+        productView = <div>
+          <h6 className='bg-danger text-white warning p-1'>Reminded: This site is for demo purposes only.
+          Do not use any personal information.</h6>
+          <CheckoutForm setView={this.setView}
+            placeOrder={this.placeOrder}
+            products={cart} />;
+        </div>;
+
         break;
     }
     return (
@@ -116,7 +122,7 @@ export default class App extends React.Component {
         <Header cartItemCount={cart.length}
           setView={this.setView} />
         {productView}
-        <DemoModal />
+        <WarningModal />
       </div>
     );
   }
