@@ -54,15 +54,15 @@ app.get('/api/cart', (req, res, next) => {
     res.json([]);
   } else {
     const sql = `
-      select "c"."cartItemId",
-       "c"."price",
-       "p"."productId",
-       "p"."image",
-       "p"."name",
-       "p"."shortDescription"
-  from "cartItems" as "c"
-  join "products" as "p" using ("productId")
- where "c"."cartId" = $1
+   select "c"."cartItemId",
+          "c"."price",
+          "p"."productId",
+          "p"."image",
+          "p"."name",
+          "p"."shortDescription"
+     from "cartItems" as "c"
+     join "products" as "p" using ("productId")
+    where "c"."cartId" = $1
     `;
     const params = [req.session.cartId];
     db.query(sql, params)
@@ -166,6 +166,18 @@ app.post('/api/orders', (req, res, next) => {
   } else {
     res.status(400).json({ error: 'All fields are required' });
   }
+});
+
+app.delete('/api/cart/:cartItemId', (req, res, next) => {
+  const { cartItemId } = req.params;
+  const sql = `
+    delete from "cartItems"
+    where "cartItemId" = $1
+    returning *
+  `;
+  db.query(sql, [cartItemId])
+    .then(result => res.status(200).json(result.rows[0]))
+    .catch(err => next(err));
 });
 
 app.use('/api', (req, res, next) => {

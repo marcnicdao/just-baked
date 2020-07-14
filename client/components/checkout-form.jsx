@@ -21,11 +21,18 @@ class CheckoutForm extends React.Component {
 
   render() {
     const { name, creditCard, shippingAddress } = this.state;
-    const { placeOrder } = this.props;
+    const { placeOrder, setView, products } = this.props;
+    const totalPrice = products.reduce((accumulator, product) => {
+      return accumulator + Number((product.price / 100));
+    }, 0).toFixed(2);
     return (
-      <div className='checkout-container container col-10'>
+      <div className='checkout-container container col-12'>
+
+        <button onClick={() => setView('catalog', {})}
+          className="details-back-button btn btn-outline-dark">{'Back to catalog'}
+        </button>
         <h1>My Cart</h1>
-        <h4>Order Total</h4>
+        <h4>{`Order Total:${totalPrice}`}</h4>
         <form>
           <div className="form-group">
             <label htmlFor="name">Name</label>

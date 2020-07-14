@@ -3,7 +3,8 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetail from './product-details';
 import CartSummary from './cart-summary';
-import CheckoutForm from './checkoutForm';
+import CheckoutForm from './checkout-form';
+import WarningModal from './warning-modal';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.deleteCartItem = this.deleteCartItem.bind(this);
   }
 
   setView(name, params) {
@@ -32,9 +34,11 @@ export default class App extends React.Component {
   getCartItems() {
     fetch('/api/cart')
       .then(result => (result.json()))
-      .then(cart => this.setState({
-        cart: cart
-      }));
+      .then(cart => {
+        this.setState({
+          cart: cart
+        });
+      });
   }
 
   componentDidMount() {
@@ -52,7 +56,19 @@ export default class App extends React.Component {
       .then(result => result.json())
       .then(cartItem => this.setState({
         cart: this.state.cart.concat(cartItem)
-      }));
+      }))
+      .catch(err => console.error(err));
+  }
+
+  deleteCartItem(id) {
+    fetch(`/api/cart/${id}`, {
+      method: 'DELETE'
+    })
+      .then(result => result.json(result))
+      .then(deletedItem => {
+        const newState = this.state.cart.filter(item => item.cartItemId !== deletedItem.cartItemId);
+        this.setState({ cart: newState });
+      });
   }
 
   placeOrder(order) {
@@ -86,11 +102,19 @@ export default class App extends React.Component {
         break;
       case 'cart':
         productView = <CartSummary products={cart}
-          setView={this.setView} />;
+          setView={this.setView}
+          addToCart={this.addToCart}
+          deleteCartItem={this.deleteCartItem} />;
         break;
       case 'checkout':
-        productView = <CheckoutForm setView={this.setView}
-          placeOrder={this.placeOrder} />;
+        productView = <div>
+          <h6 className='bg-danger text-white warning p-1'>Reminded: This site is for demo purposes only.
+          Do not use any personal information.</h6>
+          <CheckoutForm setView={this.setView}
+            placeOrder={this.placeOrder}
+            products={cart} />;
+        </div>;
+
         break;
     }
     return (
@@ -98,6 +122,7 @@ export default class App extends React.Component {
         <Header cartItemCount={cart.length}
           setView={this.setView} />
         {productView}
+        <WarningModal />
       </div>
     );
   }
