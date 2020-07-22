@@ -94,7 +94,15 @@ export default class App extends React.Component {
     let productView;
     switch (view.name) {
       case 'catalog':
-        productView = <ProductList setView={this.setView} />;
+        productView =
+        <div>
+
+          <div className='banner col-12 text-white d-flex align-items-end justify-content-end'>
+            <h4 >justBaked</h4>
+          </div>
+          <div className="col-12 banner-divider"></div>
+          <ProductList setView={this.setView} />;
+        </div>;
         break;
       case 'details':
         productView = <ProductDetail params={view.params}
@@ -113,7 +121,7 @@ export default class App extends React.Component {
           Do not use any personal information.</h6>
           <CheckoutForm setView={this.setView}
             placeOrder={this.placeOrder}
-            products={cart} />;
+            products={cart} />
         </div>;
         break;
       case 'confirmation':

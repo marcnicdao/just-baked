@@ -41,12 +41,15 @@ class CartSummary extends React.Component {
       </div>;
     return (
       <div className="container col-sm-12 col-lg-9">
+
         <div className="details-main-container">
           <div className="back-div">
             <button onClick={() => setView('catalog', {})}
               className="details-back-button btn btn-outline-dark">{'Back to catalog'}
             </button>
+
           </div>
+          <h1>Your Cart</h1>
           <div className="d-flex flex-wrap">
             {itemList}
           </div>

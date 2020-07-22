@@ -8,8 +8,8 @@ class CartSumamryItem extends React.Component {
     return (
       <div className={`card cart-item flex-row flex-wrap
                        align-items-center col-xs-12 col-md-10`}>
-        <img className="item-img col-xs-12 col-md-5" src={image} />
-        <div className='col-xs-12 col-md'>
+        <img className="item-img col-12 col-sm-5" src={image} />
+        <div className='col-12 col-sm-6 my-2'>
           <h5>{name}</h5>
           <p className="price">{`$${(price / 100).toFixed(2)}`}</p>
           <p>{shortDescription}</p>

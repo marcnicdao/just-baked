@@ -26,7 +26,7 @@ class CheckoutForm extends React.Component {
       return accumulator + Number((product.price / 100));
     }, 0).toFixed(2);
     return (
-      <div className='checkout-container container col-12'>
+      <div className='checkout-container container col-12 col-lg-9'>
 
         <button onClick={() => setView('catalog', {})}
           className="details-back-button btn btn-outline-dark">{'Back to catalog'}

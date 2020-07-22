@@ -34,12 +34,12 @@ class ProductDetail extends React.Component {
                 <img src={image}/>
               </div>
               <div className="details-short col-md-6 col-sm-12">
-                <h1 className="details-title">{name}</h1>
+                <h2 className="details-title">{name}</h2>
                 <p className="details-price">{`$${(price / 100).toFixed(2)}`}</p>
                 <p>{shortDescription}</p>
                 <AddToCartModal buttonLabel='Add to cart'
                   addToCart={() => addToCart(product)}
-                  setView={setView} />
+                  setView={setView}/>
               </div>
               <div className="details-long col-12">{longDescription}</div>
             </div>

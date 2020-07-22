@@ -36,9 +36,7 @@ class ProductList extends React.Component {
     return (
       <div className={`d-flex flex-wrap card-container
       justify-content-center container-fluid col-sm-12 col-lg-9`}>
-        <div className='banner col-lg-9 col-sm-12 text-white d-flex align-items-end justify-content-end'>
-          <h4 >justBaked</h4>
-        </div>
+
         {productGrid}
       </div>
     );

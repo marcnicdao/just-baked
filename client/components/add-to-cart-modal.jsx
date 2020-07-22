@@ -15,10 +15,12 @@ const AddToCartModal = props => {
 
   return (
     <div>
-      <Button color="primary" onClick={() => {
-        toggle();
-        addToCart();
-      }}>{buttonLabel}</Button>
+      <Button color="primary"
+        className = "mb-2"
+        onClick={() => {
+          toggle();
+          addToCart();
+        }}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}></ModalHeader>
         <ModalBody>
