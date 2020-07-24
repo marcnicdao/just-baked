@@ -25,7 +25,7 @@ class CartSumamryItem extends React.Component {
           <div className='d-flex justify-content-center quantity'>
             <ConfirmDelete ref={this.modal}
               deleteCartItem={() => deleteCartItem(cartItemId)}/>
-            <button onClick={deleteCallBack} className='btn btn-outline-dark'>-</button>;
+            <button onClick={deleteCallBack} className='btn btn-outline-dark'>-</button>
             <span className='my-auto mx-1'>{quantity}</span>
             <button onClick={() => addToCart(item)} className='btn btn-outline-dark'>+</button>
           </div>
