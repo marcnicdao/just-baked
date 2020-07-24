@@ -31,14 +31,21 @@ class CartSummary extends React.Component {
           deleteCartItem={deleteCartItem} />
       );
     });
-    const footerText = totalPrice === '0.00'
-      ? <h2>{'Your cart is empty'}</h2>
-      : <div>
-        <h4>{`Total: $${totalPrice}`}</h4>
-        <button type="button"
-          className="btn btn-primary my-2"
-          onClick={() => setView('checkout', {})}>Checkout</button>
-      </div>;
+    let footerText, headerText;
+
+    if (totalPrice === '0.00') {
+      footerText = <h2>{'Your cart is empty'}</h2>;
+    } else {
+      footerText = (
+        <div>
+          <h4>{`Total: $${totalPrice}`}</h4>
+          <button type="button"
+            className="btn btn-primary my-2"
+            onClick={() => setView('checkout', {})}>Checkout</button>
+        </div>
+      );
+      headerText = <h1>Your Cart</h1>;
+    }
     return (
       <div className="container col-sm-12 col-lg-9">
 
@@ -49,7 +56,7 @@ class CartSummary extends React.Component {
             </button>
 
           </div>
-          <h1>Your Cart</h1>
+          {headerText}
           <div className="d-flex flex-wrap">
             {itemList}
           </div>
