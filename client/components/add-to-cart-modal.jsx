@@ -6,7 +6,8 @@ const AddToCartModal = props => {
     buttonLabel,
     className,
     setView,
-    addToCart
+    addToCart,
+    scrollToView
   } = props;
 
   const [modal, setModal] = useState(false);
@@ -27,7 +28,10 @@ const AddToCartModal = props => {
           Item added. Would you like to checkout?
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>Continue Shopping</Button>{' '}
+          <Button color="primary" onClick={() => {
+            setView('catalog', {});
+            scrollToView();
+          } }>Continue Shopping</Button>{' '}
           <Button color="secondary" onClick={() => setView('cart', {})}>View Cart</Button>
         </ModalFooter>
       </Modal>
